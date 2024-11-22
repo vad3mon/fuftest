@@ -56,4 +56,11 @@ class RegisterController extends BaseController
     {
         dd(1);
     }
+
+    public function logout(Request $request)
+    {
+        $request->user()->tokens()->delete();
+        return response()->json(['message' => 'Logged out successfully']);
+    }
 }
+
